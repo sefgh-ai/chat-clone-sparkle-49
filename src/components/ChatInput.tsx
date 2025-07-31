@@ -47,10 +47,10 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
   };
 
   return (
-    <div className="border-t border-message-border bg-chat-background p-4">
+    <div className="border-t border-message-border bg-gradient-to-t from-chat-background to-transparent p-6">
       <div className="max-w-4xl mx-auto">
         <form onSubmit={handleSubmit} className="relative">
-          <div className="relative flex items-end gap-3 bg-chat-surface border border-message-border rounded-2xl p-3">
+          <div className="relative flex items-end gap-3 bg-gradient-card shadow-card border border-message-border rounded-3xl p-4 backdrop-blur-sm">
             {/* Plus button with dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -58,9 +58,9 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
                   type="button"
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 text-sidebar-text-muted hover:text-sidebar-text hover:bg-button-secondary"
+                  className="h-10 w-10 text-sidebar-text-muted hover:text-button-primary hover:bg-button-secondary rounded-full shadow-soft transition-all duration-300 hover:scale-110"
                 >
-                  <Plus className="h-4 w-4" />
+                  <Plus className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48">
@@ -80,9 +80,9 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
                   type="button"
                   variant="ghost"
                   size="icon"
-                  className="h-8 w-8 text-sidebar-text-muted hover:text-sidebar-text hover:bg-button-secondary"
+                  className="h-10 w-10 text-sidebar-text-muted hover:text-button-primary hover:bg-button-secondary rounded-full shadow-soft transition-all duration-300 hover:scale-110"
                 >
-                  <Wrench className="h-4 w-4" />
+                  <Wrench className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-48">
@@ -105,11 +105,11 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
               onKeyDown={handleKeyDown}
               placeholder="Message ChatGPT..."
               disabled={disabled}
-              className="flex-1 min-h-[24px] max-h-32 resize-none border-0 bg-transparent text-foreground placeholder-sidebar-text-muted focus-visible:ring-0 focus-visible:ring-offset-0 p-0"
+              className="flex-1 min-h-[32px] max-h-32 resize-none border-0 bg-transparent text-foreground placeholder-sidebar-text-muted focus-visible:ring-0 focus-visible:ring-offset-0 p-2 text-lg"
               rows={1}
               style={{
                 height: "auto",
-                minHeight: "24px",
+                minHeight: "32px",
               }}
               onInput={(e) => {
                 const target = e.target as HTMLTextAreaElement;
@@ -122,9 +122,9 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
             <Button
               type="submit"
               disabled={!message.trim() || disabled}
-              className="h-8 w-8 p-0 bg-button-primary hover:bg-button-primary-hover disabled:bg-muted disabled:opacity-50 rounded-full"
+              className="h-12 w-12 p-0 bg-gradient-hero hover:shadow-glow disabled:bg-muted disabled:opacity-50 rounded-full shadow-soft transition-all duration-300 hover:scale-110 disabled:hover:scale-100"
             >
-              <Send className="h-4 w-4 text-white" />
+              <Send className="h-5 w-5 text-white" />
             </Button>
           </div>
         </form>
@@ -139,7 +139,7 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
         />
 
         {/* Disclaimer */}
-        <div className="text-xs text-sidebar-text-muted text-center mt-3">
+        <div className="text-xs text-sidebar-text-muted text-center mt-4 opacity-60">
           ChatGPT can make mistakes. Check important info.
         </div>
       </div>

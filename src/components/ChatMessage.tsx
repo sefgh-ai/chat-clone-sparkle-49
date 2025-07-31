@@ -16,22 +16,22 @@ export function ChatMessage({ message }: ChatMessageProps) {
   
   return (
     <div className={cn(
-      "group py-6 px-4 transition-colors",
-      isUser ? "bg-message-user" : "bg-message-ai hover:bg-chat-surface"
+      "group py-6 px-4 transition-all duration-300 animate-fade-in",
+      isUser ? "bg-message-user" : "bg-message-ai hover:bg-chat-surface-hover"
     )}>
       <div className="max-w-4xl mx-auto flex gap-4">
         {/* Avatar */}
         <div className="flex-shrink-0">
           <div className={cn(
-            "w-8 h-8 rounded-full flex items-center justify-center",
+            "w-10 h-10 rounded-2xl shadow-soft flex items-center justify-center transition-all duration-300 group-hover:scale-105",
             isUser 
-              ? "bg-gradient-primary" 
-              : "bg-button-secondary border border-message-border"
+              ? "bg-gradient-hero shadow-glow" 
+              : "bg-gradient-card border border-message-border"
           )}>
             {isUser ? (
-              <User className="w-4 h-4 text-white" />
+              <User className="w-5 h-5 text-white" />
             ) : (
-              <Bot className="w-4 h-4 text-sidebar-text" />
+              <Bot className="w-5 h-5 text-button-primary" />
             )}
           </div>
         </div>
@@ -45,11 +45,11 @@ export function ChatMessage({ message }: ChatMessageProps) {
             
             {/* Action buttons for AI messages */}
             {!isUser && (
-              <div className="flex items-center gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="flex items-center gap-2 pt-3 opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-8 px-2 text-sidebar-text-muted hover:text-sidebar-text hover:bg-button-secondary"
+                  className="h-8 px-3 text-sidebar-text-muted hover:text-sidebar-text hover:bg-button-secondary rounded-full shadow-soft border border-message-border"
                 >
                   <Copy className="w-3 h-3 mr-1" />
                   Copy
@@ -57,14 +57,14 @@ export function ChatMessage({ message }: ChatMessageProps) {
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-8 px-2 text-sidebar-text-muted hover:text-sidebar-text hover:bg-button-secondary"
+                  className="h-8 w-8 p-0 text-sidebar-text-muted hover:text-button-primary hover:bg-button-secondary rounded-full shadow-soft border border-message-border"
                 >
                   <ThumbsUp className="w-3 h-3" />
                 </Button>
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="h-8 px-2 text-sidebar-text-muted hover:text-sidebar-text hover:bg-button-secondary"
+                  className="h-8 w-8 p-0 text-sidebar-text-muted hover:text-destructive hover:bg-button-secondary rounded-full shadow-soft border border-message-border"
                 >
                   <ThumbsDown className="w-3 h-3" />
                 </Button>
