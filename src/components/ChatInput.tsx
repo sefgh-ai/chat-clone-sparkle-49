@@ -103,7 +103,7 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Message ChatGPT..."
+              placeholder="Message sefgh-ai..."
               disabled={disabled}
               className="flex-1 min-h-[32px] max-h-32 resize-none border-0 bg-transparent text-foreground placeholder-sidebar-text-muted focus-visible:ring-0 focus-visible:ring-offset-0 p-2 text-lg"
               rows={1}
@@ -140,7 +140,7 @@ export function ChatInput({ onSendMessage, disabled, onToggleCanvas }: ChatInput
 
         {/* Disclaimer */}
         <div className="text-xs text-sidebar-text-muted text-center mt-4 opacity-60">
-          ChatGPT can make mistakes. Check important info.
+          sefgh-ai can make mistakes. Check important info.
         </div>
       </div>
     </div>

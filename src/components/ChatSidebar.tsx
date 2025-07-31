@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Plus, MessageSquare, Edit3, Trash2, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { cn } from "@/lib/utils";
 
 interface ChatSidebarProps {
@@ -41,7 +42,7 @@ export function ChatSidebar({ isCollapsed, onToggle }: ChatSidebarProps) {
               <div className="w-8 h-8 bg-gradient-hero rounded-2xl shadow-glow flex items-center justify-center animate-glow-pulse">
                 <span className="text-white text-sm font-bold">✨</span>
               </div>
-              <span className="text-sidebar-text font-semibold text-lg">ChatGPT</span>
+              <span className="text-sidebar-text font-semibold text-lg">sefgh-ai</span>
             </div>
           )}
           {isCollapsed && (
@@ -60,14 +61,17 @@ export function ChatSidebar({ isCollapsed, onToggle }: ChatSidebarProps) {
             </div>
           )}
           {!isCollapsed && (
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={onToggle}
-              className="text-sidebar-text hover:bg-sidebar-surface-hover h-8 w-8 rounded-xl transition-all duration-300 hover:scale-110"
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={onToggle}
+                className="text-sidebar-text hover:bg-sidebar-surface-hover h-8 w-8 rounded-xl transition-all duration-300 hover:scale-110"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            </div>
           )}
         </div>
         
